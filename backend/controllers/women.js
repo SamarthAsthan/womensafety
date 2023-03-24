@@ -78,4 +78,4 @@ async function signup(req, res) {
     }
     
   };
-  export default {womenHome,getWomen,signup,deleteAll};
+  export default {womenHome,getWomen,signup,deleteAll,sos};
