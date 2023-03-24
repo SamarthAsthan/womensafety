@@ -5,11 +5,25 @@ dotenv.config();
 //importing depenedices
 import express from "express";
 import bodyParser from "body-parser";
+import mongoose from "mongoose";
 
 //app configuration
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 const PORT = 5000;
+
+//db connect
+mongoose.set("strictQuery", false);
+mongoose
+  .connect(
+    "mongodb+srv://" +
+      process.env.dbUsername +
+      ":" +
+      process.env.dbPassword +
+      "@cluster0.6oziyp0.mongodb.net/?retryWrites=true&w=majority"
+  )
+  .then(() => console.log("Database Connected!"));
+
 
 //routes
 app.get("/", function (req, res) {
